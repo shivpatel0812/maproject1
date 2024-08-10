@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { LoadScript } from "@react-google-maps/api";
 import "./App.css";
 import Map from "./maps";
+import RealTimeMap from "./RealTimeMap";
+import RealTimeMediaMap from "./RealTimeMediaMap"; // Import the new component
 import ImageModal from "./imagemodal";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import FriendRequestModal from "./FriendRequestModal";
 import ViewFriendsModal from "./ViewFriendsModal";
 import ViewSharedModal from "./ViewSharedModal";
-import FilterModal from "./FilterModal"; // Import the FilterModal component
+import FilterModal from "./FilterModal";
 import { auth } from "./firebase";
 
 const AppContent = ({ user, setUser }) => {
@@ -20,8 +23,8 @@ const AppContent = ({ user, setUser }) => {
     useState(false);
   const [viewFriendsModalVisible, setViewFriendsModalVisible] = useState(false);
   const [viewSharedModalVisible, setViewSharedModalVisible] = useState(false);
-  const [filterModalVisible, setFilterModalVisible] = useState(false); // State for the filter modal
-  const [filteredUser, setFilteredUser] = useState(""); // State for the filtered user
+  const [filterModalVisible, setFilterModalVisible] = useState(false);
+  const [filteredUser, setFilteredUser] = useState("");
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -34,11 +37,13 @@ const AppContent = ({ user, setUser }) => {
   };
 
   const handleLogin = () => {
-    setUser(getAuth().currentUser);
+    const currentUser = getAuth().currentUser;
+    setUser(currentUser);
   };
 
   const handleSignUp = () => {
-    setUser(getAuth().currentUser);
+    const currentUser = getAuth().currentUser;
+    setUser(currentUser);
     setShowSignUp(false);
   };
 
@@ -51,48 +56,71 @@ const AppContent = ({ user, setUser }) => {
   }
 
   return (
-    <div className="App">
-      <button onClick={handleLogout}>Logout</button>
-      <button onClick={() => setFriendRequestModalVisible(true)}>
-        Friend Requests
-      </button>
-      <button onClick={() => setViewFriendsModalVisible(true)}>
-        View Friends
-      </button>
-      <button onClick={() => setViewSharedModalVisible(true)}>
-        View Shared
-      </button>
-      <button onClick={() => setFilterModalVisible(true)}>Filter</button>{" "}
-      {/* Add Filter button */}
-      <Map
-        onMarkerSelect={handleMarkerSelect}
-        filteredUser={filteredUser}
-      />{" "}
-      {/* Pass filteredUser to Map */}
-      {modalVisible && (
-        <ImageModal
-          marker={selectedMarker}
-          onClose={() => setModalVisible(false)}
-        />
-      )}
-      {friendRequestModalVisible && (
-        <FriendRequestModal
-          onClose={() => setFriendRequestModalVisible(false)}
-        />
-      )}
-      {viewFriendsModalVisible && (
-        <ViewFriendsModal onClose={() => setViewFriendsModalVisible(false)} />
-      )}
-      {viewSharedModalVisible && (
-        <ViewSharedModal onClose={() => setViewSharedModalVisible(false)} />
-      )}
-      {filterModalVisible && (
-        <FilterModal
-          onClose={() => setFilterModalVisible(false)}
-          setFilteredUser={setFilteredUser}
-        />
-      )}
-    </div>
+    <Router>
+      <div className="App">
+        <nav>
+          <button onClick={handleLogout}>Logout</button>
+          <button onClick={() => setFriendRequestModalVisible(true)}>
+            Friend Requests
+          </button>
+          <button onClick={() => setViewFriendsModalVisible(true)}>
+            View Friends
+          </button>
+          <button onClick={() => setViewSharedModalVisible(true)}>
+            View Shared
+          </button>
+          <button onClick={() => setFilterModalVisible(true)}>Filter</button>
+          <Link to="/map">
+            <button>Map</button>
+          </Link>
+          <Link to="/real-time-map">
+            <button>Real-Time Map</button>
+          </Link>
+          <Link to="/real-time-media-map">
+            <button>Real-Time Media Map</button>
+          </Link>
+        </nav>
+
+        <Routes>
+          <Route
+            path="/map"
+            element={
+              <Map
+                onMarkerSelect={handleMarkerSelect}
+                filteredUser={filteredUser}
+              />
+            }
+          />
+          <Route path="/real-time-map" element={<RealTimeMap />} />
+          <Route path="/real-time-media-map" element={<RealTimeMediaMap />} />
+          <Route path="/" element={<div>Welcome to the app!</div>} />
+        </Routes>
+
+        {modalVisible && (
+          <ImageModal
+            marker={selectedMarker}
+            onClose={() => setModalVisible(false)}
+          />
+        )}
+        {friendRequestModalVisible && (
+          <FriendRequestModal
+            onClose={() => setFriendRequestModalVisible(false)}
+          />
+        )}
+        {viewFriendsModalVisible && (
+          <ViewFriendsModal onClose={() => setViewFriendsModalVisible(false)} />
+        )}
+        {viewSharedModalVisible && (
+          <ViewSharedModal onClose={() => setViewSharedModalVisible(false)} />
+        )}
+        {filterModalVisible && (
+          <FilterModal
+            onClose={() => setFilterModalVisible(false)}
+            setFilteredUser={setFilteredUser}
+          />
+        )}
+      </div>
+    </Router>
   );
 };
 

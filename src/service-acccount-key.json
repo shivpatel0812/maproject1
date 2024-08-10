@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "map-project-67c93",
+  "private_key_id": "5fb36e50a87209a4648954681fbe691905a94254",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAlTrgj5XRlEs9\n1d/Doq5whMslgy9hHMwzf8NPUFgL5bzpC6bnxY/vzHBYZLX/gWHNOAwLBvrxnIE4\nPYA/PRAzjILHJXivM+NkSjpPCttK+fzAjN0789rZTnNj951KrMU5d0xmLEfD9ziq\n2wn/ioFu9VEjRmhzmgZegASaloL86Is9SSca9JK8DveMVV4N6lQ9AYqa3+0i0HAv\nt/0wbp5QXnHDl0wRnxn0j7kMAa8I6wLKoAMFXUMKMYBfPIwhlugDZrLG3gfXxULj\n8iOrcLvrPXGVhWKVfck2yuE8sFpy4qJ+RasS/1R29GctSOg5tAnZxbR1YMG9BhW1\nFGagwpDTAgMBAAECggEAEGtIs0eaot0tUw7Ofpv6ml5AAak/G1z8rfFZIgR8FTuX\nkRjsuHr4DB5Wf7rKZ4fM4lXCdRg5weqxe62Gpx2aKYLzzW3M7ccTPoQzl3SaALjy\niyoXXJqsUHWnUeEVGH5FbGJW8akZz0PfIXX+Urqo0WB58/N3SU/a9iic+98UOOKm\nr98sdHMPplj4dbtyuc9Gy3oA7eEqKES6N5/ZyZAFqEHR6y4CcSEReDlCK4CWwQIq\nwjEAz2SZWRCNDdfL+85mKQsvoSTEITFkte39HHdOZAfDUVADwqP29g65PcEOqq8q\n5KV4rOnth1O/trRsYGNHxciiIP+/Q0iTQhrs3JiwCQKBgQDvlAaK+cvfFMLb8Y0X\nQOWeQ1iviU3u0j052XFkfJ3ZtP1XRNeu8K3/HpDOGqI9kFJ6ctJxkxo9g+j0Pq0F\nyDdT+A3ReHTLPmQQArXZyKZf9KcAm1iHlOrY83dKNdNVg4iosdfoklyBvH7IdcWQ\nzjsirYa+WgYqoB0vME9b6rYTWQKBgQDNyI8tYqFPLpaLr37hX8TKvc87PjD5pP9R\nK12N/Dy/Xv5/iyUpHWP8PXBpBKB31cpSrOUvv0529XY+czh1WLEEzS5gl60xa/lz\nmpPGAUkAtELbIXh47L99j2ta5MMdF5YDy4qh4uhl8rt9BVlequANOHXahOu/f7Kb\nHoWKpyIcCwKBgQDN+6xAcxMZI0WCS0Vul8qUbvziN6A81J/1jAHVTtt84gLrtHHo\npGBFN+dyfS2+1sZDJ1POeJaYC0EQNo8WqJUBagWfcvyf/m2T4nCt5bk+SSAJAod0\nUtI0Y+fNc0fXfzbRK88h1C0bEpDDE5cgsF/hqeZu5QHmRjGxb8zbj4qqSQKBgBAu\nIdvesnJIZnvrO5266v1J+V5eIHmwmIaoUz3TxG8DqB0dMrnN3su5hPos6/UgMT1Y\n7NhZQXEnEboNUzYe2CRZgbkElBCbvcxyLgZWmYfdpJgYRKG1c8UKntVRwWmrLhd0\nTJ03+y/w6v8Eiadg5icD9nhNFUBEaSW7O6LQS2VLAoGASajHB/z7+KBvfwTyjvEk\nprQmf+QC8DD0Cl+7OqVuHCH/O8TYB/jJxviFZr+E4ku+tEpggwCtJ/meUdIyXW+5\nbCoSmiTMil5NgsWeZAhtdqawYWowTTZ8yFwH9jNomNolAGIj6By/kjUCNdhXkZKq\nvYNHJZS6JZUnbKifzTxCfB4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "real-time-map-vision-api@map-project-67c93.iam.gserviceaccount.com",
+  "client_id": "105568145257338151163",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/real-time-map-vision-api%40map-project-67c93.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

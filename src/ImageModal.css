@@ -14,9 +14,10 @@
   background-color: white;
   padding: 20px;
   border-radius: 5px;
-  width: 500px;
-  max-width: 100%;
+  width: 600px; /* Increased width */
+  max-width: 90%; /* Ensure it doesn't overflow on smaller screens */
   position: relative;
+  overflow: auto; /* Allow scrolling if content overflows */
 }
 
 .close {
@@ -39,6 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center; /* Center images */
 }
 
 .image-frame {
@@ -53,6 +55,8 @@
   height: auto;
   border: 1px solid #ddd;
   border-radius: 5px;
+  display: block; /* Ensure image is block-level to respect width */
+  margin: 0 auto; /* Center the image */
 }
 
 .share-container {
@@ -66,4 +70,20 @@
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
+}
+
+.description-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.description-textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: none;
+  display: block; /* Ensure it takes up full width */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }

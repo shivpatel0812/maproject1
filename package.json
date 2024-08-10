@@ -3,17 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google-cloud/vision": "^4.3.0",
     "@react-google-maps/api": "^2.19.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.3",
     "dropzone": "^6.0.0-beta.2",
     "firebase": "^10.12.0",
     "heic2any": "^0.0.4",
+    "multer": "^1.4.5-lts.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.2.3",
+    "react-router-dom": "^6.26.0",
     "react-scripts": "5.0.1",
+    "sharp": "^0.33.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

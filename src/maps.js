@@ -1,7 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
-import { db, auth } from "./firebase";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  onSnapshot,
+} from "firebase/firestore";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  listAll,
+  deleteObject,
+} from "firebase/storage";
+import { useDropzone } from "react-dropzone";
+import { db, storage, auth } from "./firebase";
+import heic2any from "heic2any";
+import "./ImageModal.css";
 
 const containerStyle = {
   width: "100%",
@@ -13,22 +30,21 @@ const center = {
   lng: -38.523,
 };
 
-const Map = ({ onMarkerSelect, filteredUser }) => {
+const Map = ({ filteredUser, onMarkerSelect }) => {
   const [markers, setMarkers] = useState([]);
   const [allMarkers, setAllMarkers] = useState([]);
 
   useEffect(() => {
-    const fetchMarkers = async () => {
-      const querySnapshot = await getDocs(collection(db, "markers"));
-      const markersData = querySnapshot.docs.map((doc) => ({
+    const unsubscribe = onSnapshot(collection(db, "markers"), (snapshot) => {
+      const markersData = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      console.log("Fetched markers:", markersData); // Log fetched markers
       setAllMarkers(markersData);
       setMarkers(markersData);
-    };
-    fetchMarkers();
+    });
+
+    return () => unsubscribe();
   }, []);
 
   useEffect(() => {
@@ -73,21 +89,28 @@ const Map = ({ onMarkerSelect, filteredUser }) => {
     }
   };
 
+  const handleMarkerClick = (marker) => {
+    console.log("Marker clicked:", marker);
+    onMarkerSelect(marker); // Notify App.js about marker selection
+  };
+
   return (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
-      onClick={handleMapClick}
-    >
-      {markers.map((marker) => (
-        <Marker
-          key={marker.id}
-          position={{ lat: marker.lat, lng: marker.lng }}
-          onClick={() => onMarkerSelect(marker)}
-        />
-      ))}
-    </GoogleMap>
+    <div>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onClick={handleMapClick}
+      >
+        {markers.map((marker) => (
+          <Marker
+            key={marker.id}
+            position={{ lat: marker.lat, lng: marker.lng }}
+            onClick={() => handleMarkerClick(marker)}
+          />
+        ))}
+      </GoogleMap>
+    </div>
   );
 };
 
