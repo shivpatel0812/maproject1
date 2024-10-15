@@ -79,11 +79,6 @@ Builds the app for production in the `build` folder.
 
 ## Future Enhancements
 
-- **Pin Privacy**: Introduce options to make pins private or shared with select groups.
-- **Notifications**: Real-time notifications when a friend shares a new pin or image.
-- **Review Validation**: Enhance the image validation algorithm to detect more complex contextual mismatches.
 
-## Contributing
 
-Contributions are welcome! Please follow the established guidelines and submit a pull request for review.
 
