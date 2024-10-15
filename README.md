@@ -16,21 +16,22 @@ I first started this project as a simple map application using JavaScript to upl
 - Images are saved with the pins, allowing users to visually document events or locations.
 - Pin data and images can be shared with friends through the built-in friend request system.
 
-### 2. Google Trends Integration
+### 2. Friend Requests and Pin Sharing
+- Users can send friend requests to other users.
+- Shared pins and uploaded images can be viewed by friends, making it easy to collaborate and share experiences on the map.
+
+### 3. Google Trends Integration
 - A global news map highlights significant events worldwide, represented as glowing points on the map.
 - Users can click on these points to view news articles and website links relevant to each event, powered by web scraping.
-
-### 3. Image Validation using Google Vision API
-- When users upload images at specific pins, the application checks the appropriateness of the image.
-- The Google Vision API ensures the image matches the context (e.g., no irrelevant images such as a landmark photo at a restaurant pin).
-
+- 
 ### 4. Real-Time Reviews with Image Upload
 - Users can leave reviews at specific locations (restaurants, attractions, etc.) by adding pins on the map.
 - Each review can include an image that is validated for relevance and appropriateness before being published.
 
-### 5. Friend Requests and Pin Sharing
-- Users can send friend requests to other users.
-- Shared pins and uploaded images can be viewed by friends, making it easy to collaborate and share experiences on the map.
+### 5. Image Validation using Google Vision API
+- Correlating with the real-time reviews When users upload images at specific pins, the application checks the appropriateness of the image.
+- The Google Vision API ensures the image matches the context (e.g., no irrelevant images such as a landmark photo at a restaurant pin).
+
 
 ## Getting Started
 
