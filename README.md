@@ -1,9 +1,15 @@
 
 # Map Sharing & Image Upload Application
 
-This project is a dynamic map-based web and mobile application that allows users to share pins, upload images, and interact with friends by sharing locations, reviews, and media. It integrates Google Maps, Google Trends, web scraping for news articles, and image verification algorithms to enhance the user experience.
-
+I first started this project as a simple map application using JavaScript to upload images onto pins and save the results. Over time, I transitioned the project into a ReactJS application, adding several features and functionalities. While some of these features are not directly related, they all align with various use cases of the Google Maps API. Below are the technologies used and an explanation of the different structures within the application.
 ## Features
+
+## Technologies
+
+- **Frontend**: ReactJS (web), React Native (mobile)
+- **Backend**: Express.js (for real-time map updates and server-side logic)
+- **Cloud**: Google Cloud (for storage and authentication)
+- **APIs/ML**: Google Vision API (use to create image validation algorithm), Google Trends API, Web scraping for news articles
 
 ### 1. Pin Sharing and Image Upload
 - Users can place pins on the map and upload images at specific locations.
@@ -25,13 +31,6 @@ This project is a dynamic map-based web and mobile application that allows users
 ### 5. Friend Requests and Pin Sharing
 - Users can send friend requests to other users.
 - Shared pins and uploaded images can be viewed by friends, making it easy to collaborate and share experiences on the map.
-
-## Technologies
-
-- **Frontend**: ReactJS (web), React Native (mobile)
-- **Backend**: Node.js, Express.js (for real-time map updates and server-side logic)
-- **Cloud**: Google Cloud (for storage and authentication)
-- **APIs**: Google Vision API (for image validation), Google Trends API, Web scraping for news articles
 
 ## Getting Started
 
